@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="25dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/taskTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="40sp"
+                android:maxLength="15"
+                android:text="Title"
+                android:textColor="@color/blueGray"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
+
+            <Switch
+                android:id="@+id/taskPendingStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10sp"
+                android:thumbTint="@color/blueGray"
+                android:trackTint="@color/blueGray"
+                app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
+                app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+                app:layout_constraintTop_toTopOf="@+id/taskTitle"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:paddingTop="10sp"
+                android:src="@drawable/baseline_delete_24"
+                app:layout_constraintBottom_toBottomOf="@+id/taskPendingStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/taskPendingStatus" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="Due : "
+                android:textColor="@color/blueGray"
+                app:layout_constraintStart_toStartOf="@+id/taskTitle"
+                app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+            <TextView
+                android:id="@+id/taskDueDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10sp"
+                android:text="Due date"
+                android:textColor="@color/blueGray"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+            <TextView
+                android:id="@+id/taskDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="40sp"
+                android:paddingBottom="10sp"
+                android:text="Description"
+                android:textColor="@color/blueGray"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
