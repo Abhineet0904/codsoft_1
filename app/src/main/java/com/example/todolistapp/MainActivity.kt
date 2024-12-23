@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
         val dueDateInput = EditText(this)
         dueDateInput.hint = "Due date and time"
+        dueDateInput.keyListener = null
         dueDateInput.setOnClickListener {
             val calendar = Calendar.getInstance()
 
@@ -263,18 +264,21 @@ class MainActivity : AppCompatActivity() {
                 descriptionEditBuilder.setView(layout)
 
                 descriptionEditBuilder.setPositiveButton("Ok") { dialog, _ ->
-                    val newDescription = descriptionInput.text.toString()
+                    var newDescription = descriptionInput.text.toString()
 
                     if (newDescription.isEmpty())
                     {
-                        return@setPositiveButton
+                        newDescription = ""
+                        db.updateDescription(newDescription, task)
+                        task.description = newDescription
+                        taskAdapter.notifyDataSetChanged()
+                        Toast.makeText(this, "Description updated", Toast.LENGTH_SHORT).show()
                     }
                     else if (newDescription.isNotEmpty())
                     {
                         db.updateDescription(newDescription, task)
                         task.description = newDescription
                         taskAdapter.notifyDataSetChanged()
-
                         Toast.makeText(this, "Description updated", Toast.LENGTH_SHORT).show()
                     }
                     dialog.dismiss()
