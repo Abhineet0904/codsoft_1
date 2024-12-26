@@ -15,7 +15,7 @@ class TaskAdapter(
     private val onTaskAction: (Task, TaskAction) -> Unit
 ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
-    inner class TaskViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val taskTitle = itemView.findViewById<TextView>(R.id.taskTitle)
         val taskDescription = itemView.findViewById<TextView>(R.id.taskDescription)
         val taskPendingStatus = itemView.findViewById<Switch>(R.id.taskPendingStatus)
